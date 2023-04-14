@@ -20,6 +20,8 @@
 \RequirePackage{minted}
 \RequirePackage{anyfontsize}
 \RequirePackage{lastpage}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
 
 \newcommand\arttitle{Test Title}
 \newcommand\artauthor{Test Author}
@@ -29,7 +31,7 @@
 \newcommand\artmailbox{Test MailBox}
 \newcommand\artdate\today
 
-\newcommand\lighttitlepage{
+\newcommand\collegelighttitlepage{
     \begin{titlepage}
         \centering
         \includegraphics[width=0.15\textwidth]{icon}\par\vspace{1cm}
@@ -42,7 +44,7 @@
         {\Large\itshape \artauthor \par}
         \vspace{0.1cm}
         {\large \artmailbox \par}
-        \vspace*{1cm}
+        \vspace{1cm}
         {\Large Student ID: \artid \par}
         \vfill
         % Bottom of the page
@@ -119,7 +121,8 @@ numbers=none
 
 \lstset{style=codesstyle}
 
-\setlength{\headheight}{14.49998pt}
+\setlength{\headheight}{14.5pt}
+\renewcommand\arraystretch{1.5}
 
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 
