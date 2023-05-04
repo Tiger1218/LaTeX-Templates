@@ -7,6 +7,7 @@ There's nothing worth watching.
 ! The Install Script is Only for Linux Users
 
 ```bash
+git clone https://github.com/Tiger1218/LaTeX-Templates
 sudo ./install.sh
 ```
 
