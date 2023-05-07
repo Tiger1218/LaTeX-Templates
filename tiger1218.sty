@@ -31,6 +31,14 @@
 \newcommand\artmailbox{Test MailBox}
 \newcommand\artdate\today
 
+\providecommand\atitle[1]{\renewcommand\arttitle{#1}}
+\providecommand\aauthor[1]{\renewcommand\artauthor{#1}}
+\providecommand\aaffi[1]{\renewcommand\artaffi{#1}}
+\providecommand\aid[1]{\renewcommand\artid{#1}}
+\providecommand\aclass[1]{\renewcommand\artclass{#1}}
+\providecommand\amail[1]{\renewcommand\artmailbox{#1}}
+\providecommand\adate[1]{\renewcommand\artdate{#1}}
+
 \newcommand\collegelighttitlepage{
     \begin{titlepage}
         \centering
@@ -51,6 +59,8 @@
         {\large \artdate \par}
     \end{titlepage}
 }
+
+\renewcommand\maketitle\collegelighttitlepage
 
 \newcommand\defaulttitlepage{
     \author{\artauthor}
