@@ -2,8 +2,10 @@
 \ProvidesPackage{tiger1218}
     [2023/04/04 v1.0.0 Tiger1218's (self use) article pre-include templates.]
 
+% Require packages that are frequently used in daily LaTeX routine
+
 \RequirePackage{graphicx}
-\RequirePackage{subcaption}
+\RequirePackage{subcaption} % Proviede subfigure
 % \RequirePackage[export]{adjustbox}
 \RequirePackage{changepage}
 \RequirePackage{array}
@@ -23,6 +25,8 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 
+% Provide metadata settings. And clear & repaid interface to change it
+
 \newcommand\arttitle{Test Title}
 \newcommand\artauthor{Test Author}
 \newcommand\artaffi{Test University}
@@ -38,6 +42,17 @@
 \providecommand\aclass[1]{\renewcommand\artclass{#1}}
 \providecommand\amail[1]{\renewcommand\artmailbox{#1}}
 \providecommand\adate[1]{\renewcommand\artdate{#1}}
+
+% set basic font size
+
+\fontsize{12}{15}\selectfont
+
+% make the article basic page setting more beautify
+
+\setlength{\headheight}{14.5pt}
+\renewcommand\arraystretch{1.5}
+
+% define titlepage environment. 
 
 \newcommand\collegelighttitlepage{
     \begin{titlepage}
@@ -60,28 +75,34 @@
     \end{titlepage}
 }
 
-\renewcommand\maketitle\collegelighttitlepage
-
-\newcommand\defaulttitlepage{
+% \renewcommand\maketitle\collegelighttitlepage
+\newcommand\syncwithdefault{
     \author{\artauthor}
     \title{\arttitle}
-    \date\artdate
+    \date{\artdate}
     \affil{\artaffi}
+}
+
+\newcommand\defaulttitlepage{
+    \syncwithdefault
     \maketitle
 }
 
+% put this section inside `AtBeginDocument` to avoid pdf metadata was set before global varies were not defined
 
-\hypersetup{
-    linkcolor=black,
-    citecolor=black,
-    filecolor=black,
-    urlcolor=MidnightBlue,
-    pdftitle = {\arttitle - \artauthor} ,
-    pdfauthor = \artauthor%
+\AtBeginDocument{
+    \hypersetup{
+        linkcolor=black,
+        citecolor=black,
+        filecolor=black,
+        urlcolor=MidnightBlue,
+        pdftitle = {\arttitle\ - \artauthor} ,
+        pdfauthor = \artauthor%
+    }
 }
 
-\graphicspath{{figures/}}
-\bibliographystyle{apalike}
+\graphicspath{{figures/}}% default figures path is `figures`
+\bibliographystyle{apalike}% default bib style is `APA`
 
 \geometry{
     a4paper,
@@ -91,12 +112,12 @@
     bottom=1.5cm,
     includehead,
     includefoot
-}
-
-\fontsize{12}{15}\selectfont
+}% set page margin & size
 
 \pagestyle{fancy}
-\fancyfootoffset{0pt}
+\fancyfootoffset{0pt}% set pagestyle
+
+% define code color style & terminal style
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -131,10 +152,11 @@ numbers=none
 
 \lstset{style=codesstyle}
 
-\setlength{\headheight}{14.5pt}
-\renewcommand\arraystretch{1.5}
+% Romanize a number
 
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
+% Useful columntype alias in table
 
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{C}[1]{>{\zihao{-3}\bfseries\centering\arraybackslash}b{#1}}

@@ -20,5 +20,5 @@ That's just my preference. For installing in the user LaTeX Path, just change th
 - [ ] rewrite the package with multi-argument
 - [ ] .sty -> .cls
 - [ ] add more meta macro (After finishing the `The TeXBook`)
-- [ ] add more comments
+- [x] add more comments
 - [ ] merge with SCUCCS Report Templates
